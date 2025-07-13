@@ -30,6 +30,14 @@ export default {
 };
 ```
 
+Add the following around the Markdown content, can be done in the blog layout.
+
+``` js
+<div data-markdown>
+  <slot />
+</div>
+```
+
 When running `astro dev` the integration injects a small client script to make content editable and saves changes back to your project.
 
 ## development
