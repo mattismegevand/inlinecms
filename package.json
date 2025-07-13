@@ -1,0 +1,41 @@
+{
+  "name": "inlinecms",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.6.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5",
+    "astro": "^4.0.0"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "scripts": {
+    "build": "bun build index.ts --outfile=dist/index.js --target=node && cp src/client.js dist/client.js",
+    "prepare": "bun run build",
+    "format": "prettier --write ."
+  },
+  "version": "0.1.0",
+  "description": "Inline CMS editing",
+  "main": "./dist/index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/inlinecms"
+  },
+  "keywords": [
+    "astro",
+    "cms",
+    "inline"
+  ],
+  "author": "",
+  "license": "MIT"
+}
