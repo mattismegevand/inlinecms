@@ -13,14 +13,15 @@
     "astro": "^4.0.0"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "turndown": "^7.2.0"
   },
   "scripts": {
     "build": "bun build index.ts --outfile=dist/index.js --target=node && cp src/client.js dist/client.js",
     "prepare": "bun run build",
     "format": "prettier --write ."
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Inline CMS editing",
   "main": "./dist/index.js",
   "types": "./index.d.ts",
