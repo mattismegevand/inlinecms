@@ -6,37 +6,47 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "@types/js-yaml": "^4.0.9",
     "prettier": "^3.6.2"
   },
   "peerDependencies": {
-    "typescript": "^5",
-    "astro": "^4.0.0"
+    "typescript": "^5.8.3",
+    "astro": "^4.16.18"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
     "turndown": "^7.2.0"
   },
   "scripts": {
-    "build": "bun build index.ts --outfile=dist/index.js --target=node && cp src/client.js dist/client.js",
+    "build": "bun build index.ts --outfile=dist/index.js --target=node && bun build src/main.ts --outfile=dist/client.js --target=browser",
     "prepare": "bun run build",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
   },
-  "version": "0.1.1",
-  "description": "Inline CMS editing",
+  "version": "0.2.0",
+  "description": "Real-time inline CMS for Astro with post management, frontmatter editing, and live preview",
   "main": "./dist/index.js",
   "types": "./index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts",
+    "README.md"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/example/inlinecms"
+    "url": "https://github.com/mattismegevand/inlinecms"
   },
   "keywords": [
     "astro",
     "cms",
-    "inline"
+    "inline",
+    "markdown",
+    "content",
+    "editor",
+    "frontmatter",
+    "blog"
   ],
-  "author": "",
+  "author": "Mattis Megevand <mattis@megevand.dev>",
   "license": "MIT"
 }
