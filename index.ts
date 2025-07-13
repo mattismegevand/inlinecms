@@ -1,7 +1,9 @@
 import type { AstroIntegration } from "astro";
 import { readFileSync } from "node:fs";
 
-export default function editableIntegration(): AstroIntegration {
+export default function editableIntegration(
+  contentDir: string,
+): AstroIntegration {
   return {
     name: "astro-editable-dev",
     hooks: {
@@ -35,11 +37,7 @@ export default function editableIntegration(): AstroIntegration {
               const matter = require("gray-matter");
 
               const slug = path.split("/").filter(Boolean).at(-1);
-              const filePath = join(
-                process.cwd(),
-                "src/content/blog",
-                `${slug}.md`,
-              );
+              const filePath = join(process.cwd(), contentDir, `${slug}.md`);
               const md = await fs.readFile(filePath, "utf-8");
               const parsed = matter(md);
 

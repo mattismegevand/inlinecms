@@ -26,7 +26,7 @@ Add the integration to your `astro.config.mjs` file:
 import inlineCMS from "inlinecms";
 
 export default {
-  integrations: [inlineCMS()],
+  integrations: [inlineCMS("src/content/blog")], // modify this accordingly
 };
 ```
 
