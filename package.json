@@ -11,7 +11,7 @@
   },
   "peerDependencies": {
     "typescript": "^5.8.3",
-    "astro": "^4.16.18"
+    "astro": "^5.0.0"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
@@ -24,7 +24,7 @@
     "format": "prettier --write .",
     "type-check": "tsc --noEmit"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Real-time inline CMS for Astro with post management, frontmatter editing, and live preview",
   "main": "./dist/index.js",
   "types": "./index.d.ts",
