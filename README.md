@@ -4,6 +4,8 @@
 
 A modern, TypeScript-first Astro integration that enables seamless inline editing of Markdown content during development. Edit blog posts, documentation, and any markdown-based content directly in your browser with real-time auto-save.
 
+https://github.com/user-attachments/assets/01702a21-deac-4302-9ba5-3155d4236d2a
+
 ## ✨ Features
 
 - **⚡ Real-time Editing** - Click any content and start typing
