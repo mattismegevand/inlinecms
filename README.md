@@ -17,7 +17,7 @@ https://github.com/user-attachments/assets/01702a21-deac-4302-9ba5-3155d4236d2a
 - **⌨️ Rich Keyboard Shortcuts** - Bold (Ctrl+B), Italic (Ctrl+I), Links (Ctrl+K)
 - **📝 Markdown Aware** - Proper list indentation, heading levels, code blocks
 - **🔄 Unsaved Changes Tracking** - Visual indicators and browser warnings
-- **🧩 Plugin System** - Modular architecture with focused classes
+- **🧩 Minimal Codebase** - Tinygrad-style: ~660 lines for core, no abstractions
 - **🎨 Professional UX** - Smooth animations, toast notifications, modal dialogs
 - **📱 TypeScript First** - Full type safety and IntelliSense support
 
@@ -173,38 +173,27 @@ bun run type-check   # TypeScript type checking
 bun run format       # Format code with Prettier
 ```
 
-### Project Structure
+### Project Structure (Tinygrad-style: Simple & Minimal)
 
 ```
 inlinecms/
 ├── src/
-│   ├── core/
-│   │   ├── InlineCMS.ts       # Main editor class
-│   │   ├── StatusManager.ts   # Status handling
-│   │   └── UndoRedoManager.ts # Undo/redo system
-│   ├── plugins/
-│   │   ├── MathPlugin.ts      # LaTeX handling
-│   │   ├── CodePlugin.ts      # Code blocks
-│   │   ├── ImagePlugin.ts     # Image uploads
-│   │   ├── ListPlugin.ts      # List management
-│   │   ├── PostAPI.ts         # API communication
-│   │   ├── PostManagementPlugin.ts # Post management UI
-│   │   ├── ModalManager.ts    # Modal dialogs
-│   │   └── index.ts           # Plugin exports
-│   ├── utils/
-│   │   ├── dom.ts            # DOM utilities
-│   │   └── keyboard.ts       # Key handling
-│   ├── styles/
-│   │   └── editor.css        # Editor styles
-│   ├── types/
-│   │   └── index.ts          # Type definitions
-│   └── main.ts               # Entry point
-├── index.ts                  # Integration code
-├── index.d.ts               # TypeScript definitions
-└── dist/                    # Built files
-    ├── index.js             # Server integration
-    └── client.js            # Client-side bundle
+│   ├── inlinecms.ts          # Main editor (671 lines - all core features)
+│   ├── plugins.ts            # Image/Post/Modal (378 lines - merged)
+│   └── main.ts               # Entry point (27 lines)
+├── index.ts                  # Astro integration (348 lines)
+└── dist/
+    ├── index.js              # Server bundle
+    └── client.js             # Client bundle
+
+Total: ~1424 lines (down from ~4000)
 ```
+
+**Philosophy**: Like tinygrad, we prioritize simplicity over abstraction.
+- Core editor is **one file** (671 lines) - all DOM helpers, undo/redo, status, keyboard, lists, code, math inlined
+- All plugins **merged** into one file (378 lines) - Image, Post Management, Modals, API
+- Server integration **simplified** (348 lines) - no repetition, common helpers extracted
+- **No folders** for core/utils/types - everything flat and minimal
 
 ## 📝 TypeScript Support
 
